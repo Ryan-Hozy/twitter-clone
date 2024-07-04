@@ -10,19 +10,18 @@ export default function ProfileMidBody() {
   const url = "https://pbs.twimg.com/profile_banners/83072625/1602845571/1500x500";
   const pic = "https://pbs.twimg.com/profile_images/1587405892437221376/h167Jlb2_400x400.jpg";
 
-  const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts.posts);
   const loading = useSelector((state) => state.posts.loading);
 
-  useEffect(() => {
-    const token = localStorage.getItem("authToken");
-    if (token) {
-      const decodedToken = jwtDecode(token);
-      const userId = decodedToken.id;
-      dispatch(fetchPostsByUser(userId)); //this is an async function which the system will take time to fetch data. if we use .map function without any 
+ // useEffect(() => {
+   // const token = localStorage.getItem("authToken");
+   // if (token) {
+   //   const decodedToken = jwtDecode(token);
+    //  const userId = decodedToken.id;
+    //  dispatch(fetchPostsByUser(userId)); //this is an async function which the system will take time to fetch data. if we use .map function without any 
                           //conditional rendering it is telling the system to map through posts immediately
-    }
-  }, [dispatch]);
+   // }
+  //}, [dispatch]);
 
 
   return (
